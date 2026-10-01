@@ -1,4 +1,12 @@
+# Files git should not track.
+#
+# Copyright (c) 2026 Eduardo Correia <ecorreia@apliant.com.br>
+# SPDX-License-Identifier: LGPL-3.0-or-later
+
 __pycache__/
 *.pyc
 .pytest_cache/
 .venv/
+
+# Audio written by ./run.sh smoke and ./run.sh say
+out/

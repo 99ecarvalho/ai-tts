@@ -1,5 +1,8 @@
 # Voice TTS container — Piper (https://github.com/rhasspy/piper)
 # CPU-only, lightweight. The Brazilian Portuguese model is downloaded during the build.
+#
+# Copyright (c) 2026 Eduardo Correia <ecorreia@apliant.com.br>
+# SPDX-License-Identifier: LGPL-3.0-or-later
 FROM python:3.11-slim
 
 ENV PYTHONUNBUFFERED=1 \

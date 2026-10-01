@@ -1,5 +1,11 @@
+# Runtime dependencies for the TTS service.
+#
+# Copyright (c) 2026 Eduardo Correia <ecorreia@apliant.com.br>
+# SPDX-License-Identifier: LGPL-3.0-or-later
+
 piper-tts==1.2.0
 fastapi==0.115.0
 pydantic==2.9.2
 uvicorn[standard]==0.32.0
 structlog==24.4.0
+lameenc==1.8.4
