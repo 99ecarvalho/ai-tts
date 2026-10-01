@@ -88,6 +88,7 @@ def test_voices_lists_only_complete_installs(client, tmp_path):
     _install(tmp_path, "b-voice")
     _install(tmp_path, "a-voice")
     (tmp_path / "half-voice.onnx").write_bytes(b"")
+    _install(tmp_path, "dotted.voice")  # valid files, but not a requestable name
     assert client.get("/voices").json() == {
         "default": "default-voice",
         "voices": ["a-voice", "b-voice"],

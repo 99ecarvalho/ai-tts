@@ -22,6 +22,7 @@ from __future__ import annotations
 import io
 import logging
 import os
+import re
 import struct
 import threading
 import time
@@ -159,10 +160,11 @@ def health():
 
 @app.get("/voices")
 def voices():
+    # Only list names that /synthesize accepts.
+    names = (p.name.removesuffix(".onnx") for p in VOICES_DIR.glob("*.onnx"))
     installed = sorted(
-        p.name.removesuffix(".onnx")
-        for p in VOICES_DIR.glob("*.onnx")
-        if _voice_installed(p.name.removesuffix(".onnx"))
+        name for name in names
+        if re.fullmatch(VOICE_NAME_PATTERN, name) and _voice_installed(name)
     )
     return {"default": DEFAULT_VOICE, "voices": installed}
 
